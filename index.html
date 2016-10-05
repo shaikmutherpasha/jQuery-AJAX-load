@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery Ajax | Load </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+</head>
+<body>
+
+
+<table>
+	<tr>
+		<td>First Name</td>
+		<td><input type="text" id="firstName" ></td>
+		<td><div id="firstNameDiv"></div></td>
+	</tr>
+		<tr>
+		<td>Last Name</td>
+		<td><input type="text" id="lastName" ></td>
+		<td><div id="lastNameDiv"></div></td>
+	</tr>
+	<tr>
+		<td>Subject</td>
+		<td><input type="text" id="subject" ></td>
+		<td><div id="subjectDiv"></div></td>
+	</tr>
+</table>
+
+ 
+<script>
+$(document).ready(function(){
+ var textBoxes = $('input[type="text"]');
+    textBoxes.focus(function(){
+    var divId = $(this).attr('id') + 'Div' ;
+    $('#' + divId).load('div.html #' + divId);
+    });
+
+    textBoxes.blur(function(){
+    var divId = $(this).attr('id') + 'Div' ;
+    $('#' + divId).html('');
+    });
+});
+</script>
+</body>
+</html>
